@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="DISCERN is a benchmark for scientific AI agents: data integrity, analysis verification, and evidence-grounded hypothesis generation." />
+  <title>DISCERN — Can AI Agents Work Like Scientists?</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" id="top">
+    <div class="container nav-row">
+      <a class="brand" href="#top" aria-label="DISCERN home">DISCERN</a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#framework">Framework</a>
+        <a href="#findings">Findings</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#resources">Resources</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile navigation">
+      <a href="#about">About</a>
+      <a href="#framework">Framework</a>
+      <a href="#findings">Findings</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#resources">Resources</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Scientific agent benchmark</p>
+          <h1>Can AI agents work like scientists?</h1>
+          <p class="lead">DISCERN evaluates whether scientific AI agents can do more than complete a task. It tests whether they can judge data quality, verify analyses, and reason from evidence.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#framework">Explore the benchmark</a>
+            <a class="button button-secondary" href="https://arxiv.org/abs/2609.33357" target="_blank" rel="noopener noreferrer">Read the paper</a>
+          </div>
+        </div>
+        <div class="hero-panel" aria-label="DISCERN overview">
+          <div class="hero-panel-card">
+            <div class="mini-label">At a glance</div>
+            <div class="hero-metrics">
+              <div><strong>203</strong><span>tasks</span></div>
+              <div><strong>8</strong><span>life-science tracks</span></div>
+              <div><strong>8</strong><span>evaluated models</span></div>
+            </div>
+            <div class="simple-flow" aria-hidden="true">
+              <div class="flow-item"><span>L1</span><p>Data integrity</p></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-item"><span>L2</span><p>Analysis verification</p></div>
+              <div class="flow-arrow">→</div>
+              <div class="flow-item"><span>L3</span><p>Scientific reasoning</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section muted" id="about">
+      <div class="container narrow">
+        <div class="section-heading">
+          <h2>Getting an answer is not the same as scientific discovery.</h2>
+        </div>
+        <div class="two-col-text">
+          <p>Traditional benchmarks often reward task completion. But scientific work also depends on recognizing flawed data, examining questionable analyses, and updating beliefs when evidence conflicts with prior expectations.</p>
+          <p>DISCERN asks whether an AI agent can make trustworthy scientific decisions at each of those stages, not only whether it produces a convincing answer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="framework">
+      <div class="container">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="section-label">Framework</p>
+            <h2>Three levels of scientific evaluation.</h2>
+            <p> From data quality to evidence-grounded hypothesis generation. </p>
+          </div>
+        </div>
+
+        <div class="tab-list" role="tablist" aria-label="DISCERN benchmark levels">
+          <button class="tab active" id="tab-l1" role="tab" aria-selected="true" aria-controls="panel-l1" data-target="l1">L1 · Data integrity</button>
+          <button class="tab" id="tab-l2" role="tab" aria-selected="false" aria-controls="panel-l2" tabindex="-1" data-target="l2">L2 · Analysis verification</button>
+          <button class="tab" id="tab-l3" role="tab" aria-selected="false" aria-controls="panel-l3" tabindex="-1" data-target="l3">L3 · Scientific reasoning</button>
+        </div>
+
+        <div class="tab-panel active" id="panel-l1" role="tabpanel" aria-labelledby="tab-l1" data-panel="l1">
+          <div class="panel-grid">
+            <div>
+              <p class="mini-label">Level 1</p>
+              <h3>Can the agent tell whether the data can be trusted?</h3>
+              <p>Agents inspect scientific inputs and decide whether to accept, repair, or reject them in the presence of controlled defects and clean controls.</p>
+            </div>
+            <div class="detail-card">
+              <strong>79 tasks</strong>
+              <p>Focused on identifying data issues before the scientific reasoning pipeline goes any further.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-l2" role="tabpanel" aria-labelledby="tab-l2" data-panel="l2" hidden>
+          <div class="panel-grid">
+            <div>
+              <p class="mini-label">Level 2</p>
+              <h3>Can the agent tell whether the analysis is valid?</h3>
+              <p>Agents evaluate outputs, assumptions, and methodological choices, then judge whether a conclusion should be trusted or revised.</p>
+            </div>
+            <div class="detail-card">
+              <strong>102 tasks · 24 analysis families</strong>
+              <p>Designed to test whether an agent can identify analytical failure modes and respond appropriately.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-panel" id="panel-l3" role="tabpanel" aria-labelledby="tab-l3" data-panel="l3" hidden>
+          <div class="panel-grid">
+            <div>
+              <p class="mini-label">Level 3</p>
+              <h3>Can the agent generate and revise scientific hypotheses from evidence?</h3>
+              <p>Agents confront worlds where evidence may challenge familiar scientific priors, and must propose, defend, and revise hypotheses under critique.</p>
+            </div>
+            <div class="detail-card">
+              <strong>22 scientific worlds</strong>
+              <p>The hardest setting in the benchmark, focused on evidence-grounded discovery behavior rather than routine task execution.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="footnote">The three levels are independently instantiated and scored.</p>
+      </div>
+    </section>
+
+    <section class="section muted" id="findings">
+      <div class="container">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="section-label">Key findings</p>
+            <h2>Scientific judgment remains the ultimate bottleneck.</h2>
+            <p> DISCERN reveals that while AI agents can execute code, high-level hypothesis generation remains an unsolved frontier. Perfect-score rates drop sharply as the scientific reasoning demands increase. </p>
+          </div>
+        </div>
+
+        <div class="results-grid">
+          <div class="results-card">
+            <h3>Perfect-score rate by level</h3>
+            <div class="bars">
+              <div class="bar-row">
+                <div class="bar-meta"><strong>L1</strong><span>Data integrity</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill: 60.8%"></div></div>
+                <div class="bar-value">60.8%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-meta"><strong>L2</strong><span>Analysis verification</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill: 34.2%"></div></div>
+                <div class="bar-value">34.2%</div>
+              </div>
+              <div class="bar-row">
+                <div class="bar-meta"><strong>L3</strong><span>Scientific reasoning</span></div>
+                <div class="bar-track"><div class="bar-fill" style="--fill: 0.6%"></div></div>
+                <div class="bar-value">0.6%</div>
+              </div>
+            </div>
+          </div>
+          <div class="callout-card">
+            <p class="mini-label">Main takeaway</p>
+            <div class="callout-number">0.6%</div>
+            <h3>Perfect scores at L3.</h3>
+            <p>Even when agents can process data and review analyses, evidence-grounded hypothesis generation remains extremely difficult.</p>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <article class="insight-card">
+            <h3>Misplaced caution</h3>
+            <p>Some agents reject scientifically sound inputs or decline analyses that are actually appropriate.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Broken reasoning chains</h3>
+            <p>Some agents notice a limitation but fail to correctly act on it.</p>
+          </article>
+          <article class="insight-card">
+            <h3>Uneven discovery behavior</h3>
+            <p>Models vary widely in whether they propose, defend, and revise hypotheses under critique.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coverage">
+      <div class="container">
+        <div class="section-heading row-heading">
+          <div>
+            <p class="section-label">Benchmark coverage</p>
+            <h2>Eight life-science tracks.</h2>
+            <p> Built around real scientific workflows across biology and genomics. </p>
+          </div>
+        </div>
+        <div class="track-grid">
+          <div class="track-card">Bulk RNA-seq</div>
+          <div class="track-card">Counterfactual GWAS</div>
+          <div class="track-card">ClinVar / ACMG</div>
+          <div class="track-card">CRISPR screening</div>
+          <div class="track-card">Enhancer activity</div>
+          <div class="track-card">Histone / gene expression</div>
+          <div class="track-card">Protein stability</div>
+          <div class="track-card">Single-cell RNA-seq</div>
+        </div>
+        <p class="footnote">A preliminary physics extension is reported separately and excluded from the eight-track life-science core.</p>
+
+        <section class="model-explorer" aria-labelledby="models-heading">
+          <div class="section-heading">
+            <p class="section-label">Evaluated models</p>
+            <h3 id="models-heading">Compare performance.</h3>
+            <p>Explore the eight models by scientific task level. Scores are reported on a 0–100 scale; higher is better.</p>
+          </div>
+
+          <fieldset class="score-controls" id="score-controls" hidden>
+            <legend>Choose a comparison</legend>
+            <div class="score-options">
+              <label><input type="radio" name="score-metric" value="overall" checked /><span>Overall</span></label>
+              <label><input type="radio" name="score-metric" value="l1" /><span>L1 · Data integrity</span></label>
+              <label><input type="radio" name="score-metric" value="l2" /><span>L2 · Analysis verification</span></label>
+              <label><input type="radio" name="score-metric" value="l3" /><span>L3 · Scientific reasoning</span></label>
+            </div>
+          </fieldset>
+
+          <div class="score-context">
+            <h4 id="score-title">Overall · Eight life-science tracks</h4>
+            <p id="score-description">Each track combines L1-L3 using a geometric mean. The overall score averages those eight track scores with equal weight.</p>
+          </div>
+          <p class="sr-only" id="score-status" role="status" aria-live="polite" aria-atomic="true"></p>
+          <table class="model-table" aria-describedby="score-description score-note">
+            <caption class="sr-only" id="score-caption">Overall scores, ordered from highest to lowest</caption>
+            <thead>
+              <tr><th scope="col">Model</th><th scope="col">Score / 100</th><th scope="col" class="score-spread" hidden>Track SD</th></tr>
+            </thead>
+            <tbody id="model-scores">
+              <!-- DISCERN arXiv:2609.33357v1, Table 1. Level values are mean, SD across tracks. -->
+              <tr data-overall="78.1" data-l1="86.1,5.5" data-l2="76.8,7.7" data-l3="72.8,8.7">
+                <th scope="row">GPT-6 Astra</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 78.1%"></span></span><strong>78.1</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="75.8" data-l1="80.1,10.7" data-l2="78.9,8.9" data-l3="70.0,9.7">
+                <th scope="row">GPT-5.6-sol</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 75.8%"></span></span><strong>75.8</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="75.6" data-l1="85.3,9.7" data-l2="81.7,12.7" data-l3="63.0,13.5">
+                <th scope="row">Claude Opus 5</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 75.6%"></span></span><strong>75.6</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="73.2" data-l1="77.7,10.6" data-l2="75.4,14.5" data-l3="69.1,11.8">
+                <th scope="row">Kimi K3</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 73.2%"></span></span><strong>73.2</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="70.5" data-l1="83.5,8.2" data-l2="65.5,28.4" data-l3="71.1,13.9">
+                <th scope="row">GLM-5.3</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 70.5%"></span></span><strong>70.5</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="67.8" data-l1="73.0,10.3" data-l2="70.4,19.9" data-l3="63.1,9.5">
+                <th scope="row">GLM-5.2</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 67.8%"></span></span><strong>67.8</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="62.4" data-l1="70.9,9.4" data-l2="62.1,19.4" data-l3="58.4,13.1">
+                <th scope="row">DeepSeek V4 Pro</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 62.4%"></span></span><strong>62.4</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+              <tr data-overall="39.8" data-l1="36.4,11.4" data-l2="36.0,8.1" data-l3="51.0,13.7">
+                <th scope="row">GPT-4.1</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 39.8%"></span></span><strong>39.8</strong></div></td><td class="score-spread" hidden></td>
+              </tr>
+            </tbody>
+          </table>
+          <noscript><p class="footnote">Enable JavaScript to switch between levels, or view all results in the linked paper.</p></noscript>
+          <p class="footnote" id="score-note">Level scores are means across tracks; ± values show standard deviation (SD) across tracks. </p>
+          <p class="score-source"> <a href="https://arxiv.org/html/2609.33357v1#S3.T1" target="_blank" rel="noopener noreferrer">DISCERN, Table 1 ↗</a></p>
+
+          <details class="additional-models">
+            <summary>Claude Fable 5 &amp; Fable → Opus: selective refusal and fallback replay</summary>
+            <p>Standalone Claude Fable 5 has incomplete coverage and is therefore excluded from ranking. Its reported scores are conditional on the tasks it answered; no overall score is reported.</p>
+            <p>The Fable → Opus fallback replay is constructed after evaluation by substituting the corresponding recorded Opus results for tasks Fable refused. This simulates a deployment in which refused tasks are passed to Opus. The replay also uses recorded Opus outputs for tasks not invoked under the refusal-stop protocol.</p>
+            <div class="additional-table-wrap" role="region" aria-label="Additional model results" tabindex="0">
+              <table class="additional-table">
+                <caption>Additional rows from Table 1 · scores / 100</caption>
+                <thead><tr><th scope="col">Model / system</th><th scope="col">Overall</th><th scope="col">L1</th><th scope="col">L2</th><th scope="col">L3</th></tr></thead>
+                <tbody>
+                  <tr><th scope="row">Claude Fable 5 <small>Partial coverage</small></th><td>Not reported</td><td>83.3 ± 8.5<small>63.3% coverage</small></td><td>83.8 ± 6.4<small>56.9% coverage</small></td><td>76.1<small>9.1% coverage</small></td></tr>
+                  <tr><th scope="row">Fable → Opus <small>Derived fallback replay</small></th><td>74.9</td><td>81.9 ± 8.4</td><td>79.1 ± 10.7</td><td>65.9 ± 14.4</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+        </section>
+      </div>
+    </section>
+
+    <section class="section muted" id="resources">
+      <div class="container resources-grid">
+        <div>
+          <p class="section-label">Resources</p>
+          <h2>Explore the research.</h2>
+          <p>DISCERN is designed to study the scientific decisions behind an agent's answer. Use the public paper and benchmark artifacts to learn more.</p>
+        </div>
+        <div class="resource-stack">
+          <a class="resource-card" href="https://arxiv.org/abs/2609.33357" target="_blank" rel="noopener noreferrer">
+            <div>
+              <p class="mini-label">Paper</p>
+              <h3>Research paper</h3>
+              <p>Methods, evaluations, findings, and limitations.</p>
+            </div>
+            <span>↗</span>
+          </a>
+          <a class="resource-card" href="https://huggingface.co/datasets/discern-bench-anon/discern-benchmark" target="_blank" rel="noopener noreferrer">
+            <div>
+              <p class="mini-label">Artifacts</p>
+              <h3>Benchmark release</h3>
+              <p>Tasks, prompts, outputs, and evaluation resources.</p>
+            </div>
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <div>
+        <strong>DISCERN</strong>
+      </div>
+      <a href="#top">Back to top</a>
+    </div>
+  </footer>
+</body>
+</html>
