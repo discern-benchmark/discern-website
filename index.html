@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="site-header" id="top">
+  <header class="site-header">
     <div class="container nav-row">
       <a class="brand" href="#top" aria-label="DISCERN home">DISCERN</a>
       <nav class="desktop-nav" aria-label="Primary navigation">
@@ -69,7 +69,7 @@
     </section>
 
     <section class="section muted" id="about">
-      <div class="container narrow">
+      <div class="container">
         <div class="section-heading">
           <h2>Getting an answer is not the same as scientific discovery.</h2>
         </div>
@@ -77,6 +77,21 @@
           <p>Traditional benchmarks often reward task completion. But scientific work also depends on recognizing flawed data, examining questionable analyses, and updating beliefs when evidence conflicts with prior expectations.</p>
           <p>DISCERN asks whether an AI agent can make trustworthy scientific decisions at each of those stages, not only whether it produces a convincing answer.</p>
         </div>
+
+        <figure class="paper-figure" id="paper-figure-1">
+          <div class="figure-heading">
+            <p class="mini-label">From the paper · Figure 1</p>
+            <h3 id="figure-title-1">How a data issue becomes a false scientific lead.</h3>
+          </div>
+          <a class="figure-open" href="assets/figures/figure-1-error-chain.svg" data-figure aria-label="Enlarge Figure 1: How a data issue becomes a false scientific lead.">
+            <img src="assets/figures/figure-1-error-chain.svg" width="760" height="222" loading="lazy" decoding="async" alt="Ambient RNA contamination leads to a misleading cell marker, an unsupported hypothesis, and a misdirected follow-up experiment." />
+            <span class="figure-expand" aria-hidden="true">View figure <span>↗</span></span>
+          </a>
+          <figcaption>
+            <p>An illustrative error chain inspired by the ambient-RNA tasks. The benchmark evaluates the three levels independently.</p>
+            <a class="figure-source" href="https://arxiv.org/html/2609.33357v1#S1.F1" target="_blank" rel="noopener noreferrer">Figure 1 in the paper ↗</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -139,6 +154,21 @@
         </div>
 
         <p class="footnote">The three levels are independently instantiated and scored.</p>
+
+        <figure class="paper-figure" id="paper-figure-2">
+          <div class="figure-heading">
+            <p class="mini-label">From the paper · Figure 2</p>
+            <h3 id="figure-title-2">What the benchmark tests at each level.</h3>
+          </div>
+          <a class="figure-open" href="assets/figures/figure-2-benchmark-design.svg" data-figure aria-label="Enlarge Figure 2: What the benchmark tests at each level.">
+            <img src="assets/figures/figure-2-benchmark-design.svg" width="1115" height="633" loading="lazy" decoding="async" alt="Three evaluation levels show inputs, test conditions, agent actions and scoring, alongside scientific tracks and task counts." />
+            <span class="figure-expand" aria-hidden="true">View figure <span>↗</span></span>
+          </a>
+          <figcaption>
+            <p>A: independently evaluated workflows. B: scientific coverage. C: task composition. The small score bars in the workflow are illustrative, not measured model results.</p>
+            <a class="figure-source" href="https://arxiv.org/html/2609.33357v1#S2.F2" target="_blank" rel="noopener noreferrer">Figure 2 in the paper ↗</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -181,20 +211,51 @@
           </div>
         </div>
 
-        <div class="insight-grid">
-          <article class="insight-card">
-            <h3>Misplaced caution</h3>
-            <p>Some agents reject scientifically sound inputs or decline analyses that are actually appropriate.</p>
-          </article>
-          <article class="insight-card">
-            <h3>Broken reasoning chains</h3>
-            <p>Some agents notice a limitation but fail to correctly act on it.</p>
-          </article>
-          <article class="insight-card">
-            <h3>Uneven discovery behavior</h3>
-            <p>Models vary widely in whether they propose, defend, and revise hypotheses under critique.</p>
-          </article>
-        </div>
+
+        <figure class="paper-figure" id="paper-figure-3">
+          <div class="figure-heading">
+            <p class="mini-label">From the paper · Figure 3</p>
+            <h3 id="figure-title-3">Aggregate scores hide variation across tasks.</h3>
+          </div>
+          <a class="figure-open" href="assets/figures/figure-3-performance.svg" data-figure aria-label="Enlarge Figure 3: Aggregate scores hide variation across tasks.">
+            <img src="assets/figures/figure-3-performance.svg" width="1100" height="500" loading="lazy" decoding="async" alt="Track-level score ranges and a table of model behavior, covering evidence judgment, analysis, hypothesis commitment, novelty, and resource use." />
+            <span class="figure-expand" aria-hidden="true">View figure <span>↗</span></span>
+          </a>
+          <figcaption>
+            <p>A: dots average the eight models; lines span their minimum–maximum scores. B: compare shading within each row only. Darker does not always mean better; novelty is conditional on submitted hypotheses.</p>
+            <a class="figure-source" href="https://arxiv.org/html/2609.33357v1#S4.F3" target="_blank" rel="noopener noreferrer">Figure 3 in the paper ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure class="paper-figure" id="paper-figure-4">
+          <div class="figure-heading">
+            <p class="mini-label">From the paper · Figure 4</p>
+            <h3 id="figure-title-4">Caution, commitment, and novelty differ.</h3>
+          </div>
+          <a class="figure-open" href="assets/figures/figure-4-working-styles.svg" data-figure aria-label="Enlarge Figure 4: Caution, commitment, and novelty differ.">
+            <img src="assets/figures/figure-4-working-styles.svg" width="1100" height="347" loading="lazy" decoding="async" alt="Three panels compare acceptance of clean data, hypothesis production versus novelty, and responses to evidence that conflicts with model priors." />
+            <span class="figure-expand" aria-hidden="true">View figure <span>↗</span></span>
+          </a>
+          <figcaption>
+            <p>A: decisions on clean controls. B: hypothesis participation versus conditional novelty; Astra’s novelty mean uses one hypothesis. C: responses to prior-conflicting evidence, excluding four ineligible outcomes. Abstaining differs from reverting to the prior.</p>
+            <a class="figure-source" href="https://arxiv.org/html/2609.33357v1#S4.F4" target="_blank" rel="noopener noreferrer">Figure 4 in the paper ↗</a>
+          </figcaption>
+        </figure>
+
+        <figure class="paper-figure paper-figure-compact" id="paper-figure-5">
+          <div class="figure-heading">
+            <p class="mini-label">From the paper · Figure 5</p>
+            <h3 id="figure-title-5">Computational habits are more consistent than scientific judgment.</h3>
+          </div>
+          <a class="figure-open" href="assets/figures/figure-5-ranking-consistency.png" data-figure aria-label="Enlarge Figure 5: Computational habits are more consistent than scientific judgment.">
+            <img src="assets/figures/figure-5-ranking-consistency.png" width="236" height="407" loading="lazy" decoding="async" alt="Kendall’s W is highest for token and code use and lower for analytical judgment, evidence assessment, and hypothesis commitment." />
+            <span class="figure-expand" aria-hidden="true">View figure <span>↗</span></span>
+          </a>
+          <figcaption>
+            <p>Higher Kendall’s W means more consistent model rankings across tracks. These values measure ranking agreement, not correlations between metrics or the quality of scientific work.</p>
+            <a class="figure-source" href="https://arxiv.org/html/2609.33357v1#S4.F5" target="_blank" rel="noopener noreferrer">Figure 5 in the paper ↗</a>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -325,6 +386,23 @@
       </div>
     </section>
   </main>
+
+  <dialog class="figure-dialog" id="figure-dialog" aria-labelledby="figure-dialog-title" aria-describedby="figure-dialog-caption">
+    <div class="figure-dialog-toolbar">
+      <h2 id="figure-dialog-title">Paper figure</h2>
+      <div class="figure-dialog-actions">
+        <button type="button" id="figure-zoom" aria-pressed="false" aria-controls="figure-viewport">Zoom in</button>
+        <button type="button" id="figure-close" autofocus>Close <span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+    <div class="figure-viewport" id="figure-viewport" tabindex="0" role="region" aria-label="Expanded figure; scroll to explore when zoomed">
+      <img id="figure-dialog-image" alt="" />
+    </div>
+    <div class="figure-dialog-footer">
+      <p id="figure-dialog-caption"></p>
+      <a class="figure-source" id="figure-dialog-source" target="_blank" rel="noopener noreferrer">Read the figure in the paper ↗</a>
+    </div>
+  </dialog>
 
   <footer class="site-footer">
     <div class="container footer-row">

@@ -99,3 +99,66 @@ if (scoreControls && scoreBody) {
   showScores(scoreControls.querySelector('input:checked').value);
   scoreControls.hidden = false;
 }
+
+// Figure links still open the original local artwork when JavaScript is unavailable.
+const figureDialog = document.getElementById('figure-dialog');
+if (figureDialog && typeof figureDialog.showModal === 'function') {
+  const figureImage = document.getElementById('figure-dialog-image');
+  const figureViewport = document.getElementById('figure-viewport');
+  const zoomButton = document.getElementById('figure-zoom');
+  let figureTrigger;
+
+  document.querySelectorAll('[data-figure]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      const figure = link.closest('figure');
+      const image = link.querySelector('img');
+      const source = figure.querySelector('.figure-source');
+      figureTrigger = link;
+      figureImage.src = link.href;
+      figureImage.alt = image.alt;
+      document.getElementById('figure-dialog-title').textContent = `Figure ${figure.id.split('-').pop()} · ${figure.querySelector('h3').textContent}`;
+      document.getElementById('figure-dialog-caption').textContent = figure.querySelector('figcaption p').textContent;
+      document.getElementById('figure-dialog-source').href = source.href;
+      figureViewport.classList.remove('is-zoomed');
+      figureViewport.classList.toggle('is-portrait', Number(image.getAttribute('height')) > Number(image.getAttribute('width')));
+      zoomButton.setAttribute('aria-pressed', 'false');
+      zoomButton.textContent = 'Zoom in';
+      figureDialog.showModal();
+      figureViewport.scrollTop = 0;
+      figureViewport.scrollLeft = 0;
+      document.body.classList.add('figure-viewer-open');
+    });
+  });
+
+  zoomButton.addEventListener('click', () => {
+    const zoomed = figureViewport.classList.toggle('is-zoomed');
+    zoomButton.setAttribute('aria-pressed', String(zoomed));
+    zoomButton.textContent = zoomed ? 'Fit to view' : 'Zoom in';
+    if (!zoomed) {
+      figureViewport.scrollTop = 0;
+      figureViewport.scrollLeft = 0;
+    }
+  });
+  function restoreFigurePage() {
+    if (figureDialog.open) return;
+    document.body.classList.remove('figure-viewer-open');
+    figureTrigger?.focus({ preventScroll: true });
+  }
+  function closeFigure() {
+    figureDialog.close();
+    restoreFigurePage();
+  }
+  document.getElementById('figure-close').addEventListener('click', closeFigure);
+  figureDialog.addEventListener('cancel', (event) => {
+    event.preventDefault();
+    closeFigure();
+  });
+  figureDialog.addEventListener('click', (event) => {
+    if (event.target !== figureDialog) return;
+    const bounds = figureDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeFigure();
+  });
+  figureDialog.addEventListener('close', restoreFigurePage);
+}
