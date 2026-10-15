@@ -21,6 +21,7 @@
         <a href="#framework">Framework</a>
         <a href="#findings">Findings</a>
         <a href="#coverage">Coverage</a>
+        <a href="#results">Results</a>
         <a href="#resources">Resources</a>
       </nav>
       <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -32,6 +33,7 @@
       <a href="#framework">Framework</a>
       <a href="#findings">Findings</a>
       <a href="#coverage">Coverage</a>
+      <a href="#results">Results</a>
       <a href="#resources">Resources</a>
     </nav>
   </header>
@@ -280,64 +282,213 @@
         </div>
         <p class="footnote">A preliminary physics extension is reported separately and excluded from the eight-track life-science core.</p>
 
-        <section class="model-explorer" aria-labelledby="models-heading">
-          <div class="section-heading">
-            <p class="section-label">Evaluated models</p>
-            <h3 id="models-heading">Compare performance.</h3>
-            <p>Explore the eight models by scientific task level. Scores are reported on a 0–100 scale; higher is better.</p>
-          </div>
-
-          <fieldset class="score-controls" id="score-controls" hidden>
-            <legend>Choose a comparison</legend>
-            <div class="score-options">
-              <label><input type="radio" name="score-metric" value="overall" checked /><span>Overall</span></label>
-              <label><input type="radio" name="score-metric" value="l1" /><span>L1 · Data integrity</span></label>
-              <label><input type="radio" name="score-metric" value="l2" /><span>L2 · Analysis verification</span></label>
-              <label><input type="radio" name="score-metric" value="l3" /><span>L3 · Scientific reasoning</span></label>
+        <section class="model-explorer" id="results" aria-labelledby="models-heading">
+          <div class="results-heading">
+            <div>
+              <p class="section-label">DISCERN leaderboard</p>
+              <h3 id="models-heading">Results</h3>
+              <p>Compare scientific performance, token efficiency, and cost across eight evaluated models.</p>
             </div>
-          </fieldset>
-
-          <div class="score-context">
-            <h4 id="score-title">Overall · Eight life-science tracks</h4>
-            <p id="score-description">Each track combines L1-L3 using a geometric mean. The overall score averages those eight track scores with equal weight.</p>
+            <span class="results-edition">8 models · Life-science core</span>
           </div>
-          <p class="sr-only" id="score-status" role="status" aria-live="polite" aria-atomic="true"></p>
-          <table class="model-table" aria-describedby="score-description score-note">
-            <caption class="sr-only" id="score-caption">Overall scores, ordered from highest to lowest</caption>
-            <thead>
-              <tr><th scope="col">Model</th><th scope="col">Score / 100</th><th scope="col" class="score-spread" hidden>Track SD</th></tr>
-            </thead>
-            <tbody id="model-scores">
-              <!-- DISCERN arXiv:2609.33357v1, Table 1. Level values are mean, SD across tracks. -->
-              <tr data-overall="78.1" data-l1="86.1,5.5" data-l2="76.8,7.7" data-l3="72.8,8.7">
-                <th scope="row">GPT-6 Astra</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 78.1%"></span></span><strong>78.1</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="75.8" data-l1="80.1,10.7" data-l2="78.9,8.9" data-l3="70.0,9.7">
-                <th scope="row">GPT-5.6-sol</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 75.8%"></span></span><strong>75.8</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="75.6" data-l1="85.3,9.7" data-l2="81.7,12.7" data-l3="63.0,13.5">
-                <th scope="row">Claude Opus 5</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 75.6%"></span></span><strong>75.6</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="73.2" data-l1="77.7,10.6" data-l2="75.4,14.5" data-l3="69.1,11.8">
-                <th scope="row">Kimi K3</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 73.2%"></span></span><strong>73.2</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="70.5" data-l1="83.5,8.2" data-l2="65.5,28.4" data-l3="71.1,13.9">
-                <th scope="row">GLM-5.3</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 70.5%"></span></span><strong>70.5</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="67.8" data-l1="73.0,10.3" data-l2="70.4,19.9" data-l3="63.1,9.5">
-                <th scope="row">GLM-5.2</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 67.8%"></span></span><strong>67.8</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="62.4" data-l1="70.9,9.4" data-l2="62.1,19.4" data-l3="58.4,13.1">
-                <th scope="row">DeepSeek V4 Pro</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 62.4%"></span></span><strong>62.4</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-              <tr data-overall="39.8" data-l1="36.4,11.4" data-l2="36.0,8.1" data-l3="51.0,13.7">
-                <th scope="row">GPT-4.1</th><td><div class="model-score"><span class="model-bar" aria-hidden="true"><span style="--fill: 39.8%"></span></span><strong>39.8</strong></div></td><td class="score-spread" hidden></td>
-              </tr>
-            </tbody>
-          </table>
-          <noscript><p class="footnote">Enable JavaScript to switch between levels, or view all results in the linked paper.</p></noscript>
-          <p class="footnote" id="score-note">Level scores are means across tracks; ± values show standard deviation (SD) across tracks. </p>
-          <p class="score-source"> <a href="https://arxiv.org/html/2609.33357v1#S3.T1" target="_blank" rel="noopener noreferrer">DISCERN, Table 1 ↗</a></p>
+          <div id="results-controls" hidden>
+            <div class="results-tabs" role="tablist" aria-label="Results metrics">
+              <button type="button" class="results-tab" id="results-tab-overall" role="tab" aria-selected="true" aria-controls="results-panel" tabindex="0" data-view="overall"><span>Overall</span><small>Full benchmark</small></button>
+              <button type="button" class="results-tab" id="results-tab-l1" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="l1"><span>L1</span><small>Data integrity</small></button>
+              <button type="button" class="results-tab" id="results-tab-l2" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="l2"><span>L2</span><small>Analysis verification</small></button>
+              <button type="button" class="results-tab" id="results-tab-l3" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="l3"><span>L3</span><small>Scientific reasoning</small></button>
+              <button type="button" class="results-tab" id="results-tab-tokens" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="tokens"><span>Tokens used</span><small>Total tokens</small></button>
+              <button type="button" class="results-tab" id="results-tab-efficiency" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="efficiency"><span>Token efficiency</span><small>Score / M tokens</small></button>
+              <button type="button" class="results-tab" id="results-tab-cost" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="cost"><span>Cost per task</span><small>USD / task</small></button>
+              <button type="button" class="results-tab" id="results-tab-costEfficiency" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="costEfficiency"><span>Cost efficiency</span><small>USD / score point</small></button>
+              <button type="button" class="results-tab" id="results-tab-calls" role="tab" aria-selected="false" aria-controls="results-panel" tabindex="-1" data-view="calls"><span>API calls</span><small>Total calls</small></button>
+            </div>
+            <div class="results-toolbar">
+              <button type="button" class="results-order" id="results-order">High to low ↓</button>
+            </div>
+          </div>
+          <div id="results-panel">
+            <div class="results-context">
+              <h4 id="results-view-title">Overall performance</h4>
+              <p id="results-description">Each track combines L1–L3 with a geometric mean; the overall score averages the eight track scores equally.</p>
+            </div>
+            <div class="results-chart-section" id="results-chart-section" hidden>
+              <div class="results-chart-heading"><strong id="results-chart-title">Overall score</strong><span id="results-direction">Higher is better · /100</span></div>
+              <div class="results-scale-controls" id="results-scale-controls" hidden>
+                <button type="button" id="results-zoom" aria-pressed="false" aria-label="Zoom cost efficiency chart" aria-controls="results-chart results-axis" aria-describedby="results-scale-note">Zoom in</button>
+                <p id="results-scale-note">Full scale: $0–$1 per score point. Zoom in to compare small differences.</p>
+              </div>
+              <div class="results-chart-scroll" tabindex="0" role="region" aria-label="Model comparison chart; scroll horizontally on small screens">
+                <div class="results-chart-layout"><div class="results-axis" id="results-axis" aria-hidden="true"></div><div class="results-chart" id="results-chart"></div></div>
+              </div>
+              <p class="results-chart-hint">Select a bar or model name to see its score and resource use together.</p>
+            </div>
+            <div class="results-model-detail" id="results-model-detail" hidden></div>
+            <p id="results-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+            <div class="results-table-wrap" role="region" aria-label="Results table; scroll horizontally for all metrics" tabindex="0">
+              <table class="results-table" aria-describedby="results-description results-note">
+                <caption class="sr-only" id="results-table-caption">Overall performance across eight models</caption>
+                <thead id="results-table-head"><tr><th scope="col">#</th><th scope="col">Model</th><th scope="col">Overall<br />/100</th><th scope="col">L1<br />/100</th><th scope="col">L2<br />/100</th><th scope="col">L3<br />/100</th><th scope="col">Tokens used<br />Total tokens</th><th scope="col">Token efficiency<br />Score / M tokens</th><th scope="col">Cost per task<br />USD / task</th><th scope="col">Cost efficiency<br />USD / score point</th><th scope="col">API calls<br />Total calls</th></tr></thead>
+                <tbody id="results-table-body">
+                  <tr><td>1</td><th scope="row">GPT-6 Astra</th><td>78.1</td><td>86.1 ± 5.5</td><td>76.8 ± 7.7</td><td>72.8 ± 8.7</td><td>9.86M</td><td>7.92</td><td>$0.69</td><td>$0.0088</td><td>1,369</td></tr>
+                  <tr><td>2</td><th scope="row">GPT-5.6-sol</th><td>75.8</td><td>80.1 ± 10.7</td><td>78.9 ± 8.9</td><td>70.0 ± 9.7</td><td>14.06M</td><td>5.39</td><td>$0.38</td><td>$0.0051</td><td>1,552</td></tr>
+                  <tr><td>3</td><th scope="row">Claude Opus 5</th><td>75.6</td><td>85.3 ± 9.7</td><td>81.7 ± 12.7</td><td>63.0 ± 13.5</td><td>42.24M</td><td>1.79</td><td>$1.34</td><td>$0.0177</td><td>2,451</td></tr>
+                  <tr><td>4</td><th scope="row">Kimi K3</th><td>73.2</td><td>77.7 ± 10.6</td><td>75.4 ± 14.5</td><td>69.1 ± 11.8</td><td>34.04M</td><td>2.15</td><td>$0.65</td><td>$0.0089</td><td>2,671</td></tr>
+                  <tr><td>5</td><th scope="row">GLM-5.3</th><td>70.5</td><td>83.5 ± 8.2</td><td>65.5 ± 28.4</td><td>71.1 ± 13.9</td><td>75.21M</td><td>0.94</td><td>$0.58</td><td>$0.0083</td><td>3,756</td></tr>
+                  <tr><td>6</td><th scope="row">GLM-5.2</th><td>67.8</td><td>73.0 ± 10.3</td><td>70.4 ± 19.9</td><td>63.1 ± 9.5</td><td>57.16M</td><td>1.19</td><td>$0.37</td><td>$0.0055</td><td>3,761</td></tr>
+                  <tr><td>7</td><th scope="row">DeepSeek V4 Pro</th><td>62.4</td><td>70.9 ± 9.4</td><td>62.1 ± 19.4</td><td>58.4 ± 13.1</td><td>59.30M</td><td>1.05</td><td>$0.44</td><td>$0.0070</td><td>3,365</td></tr>
+                  <tr><td>8</td><th scope="row">GPT-4.1</th><td>39.8</td><td>36.4 ± 11.4</td><td>36.0 ± 8.1</td><td>51.0 ± 13.7</td><td>2.88M</td><td>13.81</td><td>$0.05</td><td>$0.0012</td><td>747</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <noscript><p class="footnote">Enable JavaScript for the interactive chart and sorting. All nine paper metrics are shown above.</p></noscript>
+            <p class="footnote" id="results-note">Scores use a 0–100 rubric, not a success percentage. L1–L3 show mean ± standard deviation across tracks.</p>
+            <div class="results-definitions">
+              <dl id="results-definitions-list">
+                <dt>Overall score</dt><dd>Equal-weight average of the eight track composites.</dd>
+                <dt>Level scores</dt><dd>Mean ± standard deviation across tracks.</dd>
+              </dl>
+            </div>
+          </div>
+          <p class="score-source">Reported values: <a href="https://arxiv.org/html/2609.33357v1#S3.T1" target="_blank" rel="noopener noreferrer">Table 1 ↗</a></p>
+          <script type="application/json" id="results-data">[
+  {
+    "id": "astra",
+    "name": "GPT-6 Astra",
+    "overall": 78.1,
+    "l1": 86.1,
+    "l1sd": 5.5,
+    "l2": 76.8,
+    "l2sd": 7.7,
+    "l3": 72.8,
+    "l3sd": 8.7,
+    "tokens": 9.86,
+    "efficiency": 7.92,
+    "cost": 0.69,
+    "costEfficiency": 0.0088,
+    "calls": 1369,
+    "color": "#2854c5"
+  },
+  {
+    "id": "sol",
+    "name": "GPT-5.6-sol",
+    "overall": 75.8,
+    "l1": 80.1,
+    "l1sd": 10.7,
+    "l2": 78.9,
+    "l2sd": 8.9,
+    "l3": 70.0,
+    "l3sd": 9.7,
+    "tokens": 14.06,
+    "efficiency": 5.39,
+    "cost": 0.38,
+    "costEfficiency": 0.0051,
+    "calls": 1552,
+    "color": "#477eaa"
+  },
+  {
+    "id": "opus",
+    "name": "Claude Opus 5",
+    "overall": 75.6,
+    "l1": 85.3,
+    "l1sd": 9.7,
+    "l2": 81.7,
+    "l2sd": 12.7,
+    "l3": 63.0,
+    "l3sd": 13.5,
+    "tokens": 42.24,
+    "efficiency": 1.79,
+    "cost": 1.34,
+    "costEfficiency": 0.0177,
+    "calls": 2451,
+    "color": "#ac624b"
+  },
+  {
+    "id": "kimi",
+    "name": "Kimi K3",
+    "overall": 73.2,
+    "l1": 77.7,
+    "l1sd": 10.6,
+    "l2": 75.4,
+    "l2sd": 14.5,
+    "l3": 69.1,
+    "l3sd": 11.8,
+    "tokens": 34.04,
+    "efficiency": 2.15,
+    "cost": 0.65,
+    "costEfficiency": 0.0089,
+    "calls": 2671,
+    "color": "#31867b"
+  },
+  {
+    "id": "glm53",
+    "name": "GLM-5.3",
+    "overall": 70.5,
+    "l1": 83.5,
+    "l1sd": 8.2,
+    "l2": 65.5,
+    "l2sd": 28.4,
+    "l3": 71.1,
+    "l3sd": 13.9,
+    "tokens": 75.21,
+    "efficiency": 0.94,
+    "cost": 0.58,
+    "costEfficiency": 0.0083,
+    "calls": 3756,
+    "color": "#8759a8"
+  },
+  {
+    "id": "glm52",
+    "name": "GLM-5.2",
+    "overall": 67.8,
+    "l1": 73.0,
+    "l1sd": 10.3,
+    "l2": 70.4,
+    "l2sd": 19.9,
+    "l3": 63.1,
+    "l3sd": 9.5,
+    "tokens": 57.16,
+    "efficiency": 1.19,
+    "cost": 0.37,
+    "costEfficiency": 0.0055,
+    "calls": 3761,
+    "color": "#a07736"
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek V4 Pro",
+    "overall": 62.4,
+    "l1": 70.9,
+    "l1sd": 9.4,
+    "l2": 62.1,
+    "l2sd": 19.4,
+    "l3": 58.4,
+    "l3sd": 13.1,
+    "tokens": 59.3,
+    "efficiency": 1.05,
+    "cost": 0.44,
+    "costEfficiency": 0.007,
+    "calls": 3365,
+    "color": "#b74e75"
+  },
+  {
+    "id": "gpt41",
+    "name": "GPT-4.1",
+    "overall": 39.8,
+    "l1": 36.4,
+    "l1sd": 11.4,
+    "l2": 36.0,
+    "l2sd": 8.1,
+    "l3": 51.0,
+    "l3sd": 13.7,
+    "tokens": 2.88,
+    "efficiency": 13.81,
+    "cost": 0.05,
+    "costEfficiency": 0.0012,
+    "calls": 747,
+    "color": "#657487"
+  }
+]</script>
 
           <details class="additional-models">
             <summary>Claude Fable 5 &amp; Fable → Opus: selective refusal and fallback replay</summary>
@@ -345,14 +496,15 @@
             <p>The Fable → Opus fallback replay is constructed after evaluation by substituting the corresponding recorded Opus results for tasks Fable refused. This simulates a deployment in which refused tasks are passed to Opus. The replay also uses recorded Opus outputs for tasks not invoked under the refusal-stop protocol.</p>
             <div class="additional-table-wrap" role="region" aria-label="Additional model results" tabindex="0">
               <table class="additional-table">
-                <caption>Additional rows from Table 1 · scores / 100</caption>
-                <thead><tr><th scope="col">Model / system</th><th scope="col">Overall</th><th scope="col">L1</th><th scope="col">L2</th><th scope="col">L3</th></tr></thead>
+                <caption>Additional rows from Table 1 · scores / 100; resource units shown below</caption>
+                <thead><tr><th scope="col">Model / system</th><th scope="col">Overall</th><th scope="col">L1</th><th scope="col">L2</th><th scope="col">L3</th><th scope="col">Tokens used<small>million tokens</small></th><th scope="col">Token efficiency<small>score points / M tokens</small></th><th scope="col">Cost per task<small>USD / task</small></th><th scope="col">Cost efficiency<small>USD / score point</small></th><th scope="col">API calls<small>recorded calls</small></th></tr></thead>
                 <tbody>
-                  <tr><th scope="row">Claude Fable 5 <small>Partial coverage</small></th><td>Not reported</td><td>83.3 ± 8.5<small>63.3% coverage</small></td><td>83.8 ± 6.4<small>56.9% coverage</small></td><td>76.1<small>9.1% coverage</small></td></tr>
-                  <tr><th scope="row">Fable → Opus <small>Derived fallback replay</small></th><td>74.9</td><td>81.9 ± 8.4</td><td>79.1 ± 10.7</td><td>65.9 ± 14.4</td></tr>
+                  <tr><th scope="row">Claude Fable 5 <small>Partial coverage</small></th><td>Not reported</td><td>83.3 ± 8.5<small>63.3% coverage</small></td><td>83.8 ± 6.4<small>56.9% coverage</small></td><td>76.1<small>9.1% coverage</small></td><td>8.55M</td><td>Not reported</td><td>$0.59</td><td>Not reported</td><td>948</td></tr>
+                  <tr><th scope="row">Fable → Opus <small>Derived fallback replay</small></th><td>74.9</td><td>81.9 ± 8.4</td><td>79.1 ± 10.7</td><td>65.9 ± 14.4</td><td>25.77M</td><td>2.91</td><td>$1.17</td><td>$0.0156</td><td>2,032</td></tr>
                 </tbody>
               </table>
             </div>
+            <p class="footnote">“Not reported” denotes values omitted from Table 1. Costs use the paper’s dated price estimates and exclude grading, verification, and review.</p>
           </details>
         </section>
       </div>
